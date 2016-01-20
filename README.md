@@ -11,7 +11,7 @@ Es necesario tener un archivo llamado 'agenda' creado en el directorio contenedo
 
  \#chmod 777 agenda
 
- #Uso
+#Uso
 Ejecutar el script 'TP1.php' a traves del servidor apache.
 
 Mostrara un formulario, con tres campos y en el que se ofrecen tres opciones:
