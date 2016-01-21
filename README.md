@@ -39,3 +39,41 @@ Para esta opcion ningun campo es requerido.
 
 
 
+---------------------------------------------------------------------------------------------
+
+
+#DAW Agenda
+
+Agenda DAW is a script to save and display the work of the various subjects of the training cycle of higher level of development of Web applications.
+
+This script consists of 3 files.
+
+#Requeriments
+
+Apache server
+
+You must have a file called 'Agenda' created in the container script directory, and grant all permissions using the command:
+
+777 #chmod schedule
+
+#Use
+
+Run 'TP1.php' script through the Apache server.
+
+Show a form with three fields in which three choices:
+
+Save:
+
+To save a task you must complete the date format 'yyyy-MM-dd', select the subject, and describe the task.
+
+Once validated and saved, will appear a message of success.
+
+Show:
+
+We are able to generate an HTML table, the tasks of a specific date. For this option, the only required field and taken into account is the date field.
+
+Show all:
+
+This option allows us to display a table of all recorded tasks. For this option any field is required.
+
+** When viewing tables, we have the options to return to the main form or generate corresponding to the displayed table JSON text.
