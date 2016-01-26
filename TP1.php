@@ -92,6 +92,7 @@
 		$pos=0;
 		#Recorremos los registros
 		#Browse registers
+                $hayfilas=false;
 		foreach ($mostrarChop as $key => $value) {
 			#Se obvia el ultimo registro que es una linea vacia
 			#Se obvia el ultimo registro que es una linea vacia
@@ -103,6 +104,7 @@
 				#Comprobar que la fecha coincide con el registro, para guardar el registro en el array
 				#Check that the date coincides with the registration, to save the record in the array
 				if($fecha==$entrada[0]){
+                                        $hayfilas=true;
 					$agendaTotal[$pos++]=array(
 										"fecha" => $entrada[0],
 										"asignatura" => $entrada[1],
@@ -110,17 +112,23 @@
 				}
 			}
 		}		
-		$html = generarTabla($agendaTotal, 'generar');
-		echo $html;
+	        if($hayfilas) {	
+                  $html = generarTabla($agendaTotal, 'generar');
+		  echo $html;
 
 		#Si la cookie no existe o es distinta a la fecha buscada, se genera una nueva cookie con la fecha buscada. Para poder recuperar el JSON de la busqueda en caso de pedirlo.
 		#If the cookie does not exist or is different from the required date, a new cookie with the required date is generated. In order to retrieve the JSON if the search request it.
-		if(!$_COOKIE['JSON'] || $_COOKIE['JSON'] != $fecha){
+		  if(!$_COOKIE['JSON'] || $_COOKIE['JSON'] != $fecha){
 			setcookie('JSON',$_POST['fecha']);
-		}
+		  }
 		#La funcion devuelve el array creado para generar JSON
 		#The function returns the array created to generate JSON
-		return $agendaTotal;
+		  return $agendaTotal;
+                }
+                else {
+                  echo "<br /><i>No hay entradas para<i /> <b>$_POST[fecha]<b />";
+                }
+                echo "<form method=\"POST\"><input type=\"submit\" value=\"Volver\"/></form>";
 	}
 	function guardar(){
 		#Guardar los parametros en variables

@@ -52,9 +52,9 @@ This script consists of 3 files.
 
 Apache server
 
-You must have a file called 'Agenda' created in the container script directory, and grant all permissions using the command:
+You must have a file called 'agenda' created in the container script directory, and grant all permissions using the command:
 
-777 #chmod schedule
+#chmod 777 agenda
 
 #Use
 
